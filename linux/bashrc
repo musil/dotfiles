@@ -1,0 +1,183 @@
+#!/bin/bash
+
+# barshrc
+# ogirinal: Ondrej Sika <ondrej@ondrejsika.com>  https://github.com/ondrejsika/dotfiles
+# customized for: Stanislav Musil <musil@sm-net.cz>
+#####################################
+
+STANISLAV_MUSIL_DESKTOP_HOSTNAMES=" workstation xps17 HP-Fury-G8 "
+
+export EDITOR=/usr/bin/vi
+
+# Git configuration for Stanislav Musil's desktop only (also for SSH forward)
+if [[ $STANISLAV_MUSIL_DESKTOP_HOSTNAMES =~ " $HOSTNAME " ]]; then
+  export GIT_AUTHOR_NAME="Stanislav Musil"
+  export GIT_AUTHOR_EMAIL="musil@sm-net.cz"
+  export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
+  export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
+fi
+
+# Set language for MC
+export LANG=en_US.UTF-8
+
+# Bash history settings
+#export HISTCONTROL=ignoreboth
+export HISTSIZE=1000000
+export HISTFILESIZE=2000000
+#shopt -s histappend
+
+export PATH=$PATH:/home/musils/bin
+
+[ -d "$HOME/go/bin" ] && export PATH="$HOME/go/bin:$PATH"
+
+alias w="watch -n 0.3"
+
+#alias cc="xclip -sel clip"
+
+alias httpserve="python -m SimpleHTTPServer"
+alias phpserve="php -S localhost:$1 $2"
+#alias tl="telnet 127.0.0.1"
+
+#alias activate="source .env/bin/activate"
+
+alias rmlog="find . -name '*.log' -exec rm -rf {} \;"
+alias rmswp="find . -name '*.swp' -exec rm -rf {} \;"
+alias rmdsstore="find . -name '.DS_Store' -exec rm -rf {} \;"
+
+alias g=git
+complete -F _complete_alias g
+alias st='git status'
+complete -F _complete_alias st
+alias sta='git status --untracked-files=all'
+complete -F _complete_alias sta
+alias di='git diff'
+complete -F _complete_alias di
+alias dis='git diff --staged'
+complete -F _complete_alias dis
+alias dit='git diff | tig'
+complete -F _complete_alias dit
+alias dist='git diff --staged | tig'
+complete -F _complete_alias dist
+alias ci='git commit -S'
+complete -F _complete_alias ci
+alias co='git checkout'
+complete -F _complete_alias co
+alias br='git branch'
+complete -F _complete_alias br
+alias ad='git add'
+complete -F _complete_alias ad
+alias fa='git fetch --all --prune'
+complete -F _complete_alias fa
+alias ga='gitk --all'
+complete -F _complete_alias ga
+
+alias ll='ls -al'
+
+#alias createutfdb="createdb -l en_US.utf8 -E UTF8 -T template0"
+
+alias yd='youtube-dl --extract-audio --audio-format mp3 '
+
+# --- Kubernetes ---
+
+# kubectl
+alias k=kubectl
+complete -F _complete_alias k
+
+
+# install: brew install kubectx
+# kubectx
+alias kx=kubectx
+complete -F _complete_alias kx
+
+# kubens
+alias kn=kubens
+complete -F _complete_alias kn
+
+# kube-ps1
+function kps1() {
+  source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+  export KUBE_PS1_SYMBOL_ENABLE=false
+  export PS1='$(kube_ps1)'$PS1
+}
+
+# krun
+alias krun="kubectl run kubeshell -ti --rm --image nixery.dev/shell/kubectl/curl/host/telnet/wget/vim/mc/htop/less -- bash"
+
+# ksys
+alias ksys="kubectl -n kube-system"
+complete -F _complete_alias ksys
+
+# klogs
+alias klogs="kubectl logs"
+complete -F _complete_alias klogs
+
+# kports
+alias kports="kubectl port-forward"
+complete -F _complete_alias kports
+
+# Docker
+alias dra="docker ps -a  -q | xargs docker rm -f"
+
+# Terraform
+alias tf=terraform
+complete -F _complete_alias tf
+
+# Terraform Shortcuts
+alias tfi="terraform init"
+complete -F _complete_alias tfi
+
+alias tfa="terraform apply"
+complete -F _complete_alias tfa
+
+alias tfd="terraform destroy"
+complete -F _complete_alias tfd
+
+alias tfp="terraform plan"
+complete -F _complete_alias tfp
+
+alias tfs="terraform show"
+complete -F _complete_alias tfs
+
+alias tfo="terraform output"
+complete -F _complete_alias tfo
+
+function commit-terraform-lock() {
+  git add .terraform.lock.hcl
+  git commit -m "[generated] Update .terraform.lock.hcl"
+}
+
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+
+# BASH debian default config
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+fi
+
+# Support for local bashrc, bash aliases
+if [ -z $LOCAL_BASHRC_LOADED ]; then
+    if [ -f ~/.bashrc ]; then
+        export LOCAL_BASHRC_LOADED=yes
+        . ~/.bashrc
+    fi
+fi
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+
+# Enable autocomplete
+#if ! shopt -oq posix; then
+#  if [ -f /usr/share/bash-completion/bash_completion ]; then
+#    . /usr/share/bash-completion/bash_completion
+#  elif [ -f /etc/bash_completion ]; then
+#    . /etc/bash_completion
+#  fi
+#fi

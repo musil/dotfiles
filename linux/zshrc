@@ -1,0 +1,112 @@
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+plugins=(git kube-ps1 docker docker-compose)
+source $ZSH/oh-my-zsh.sh
+
+
+# ~/bin
+
+[ -d "${HOME}/bin" ] && export PATH="${HOME}/bin:${PATH}"
+
+# Individual history per tab
+#
+# See: https://superuser.com/a/1248123/675796
+unsetopt inc_append_history
+unsetopt share_history
+
+# Git
+
+alias st='git status'
+alias sta='git status --untracked-files=all'
+alias di='git diff'
+alias dis='git diff --staged'
+alias dit='git diff | tig'
+alias dist='git diff --staged | tig'
+alias ci='git commit'
+alias co='git checkout'
+alias br='git branch'
+alias ad='git add'
+alias fa='git fetch --all --prune'
+alias ga='gitk --all'
+alias glo='git log --oneline '
+
+alias guo='slu git url open'
+
+# Kubernetes
+
+alias k=kubectl
+alias kx=kubectx
+alias kn=kubens
+
+alias kdev="kubectl run dev-$(date +%s) --rm -ti --image sikalabs/dev -- bash"
+
+
+# kube-ps1
+
+function kps1() {
+  export KUBE_PS1_SYMBOL_ENABLE=false
+  export PS1='$(kube_ps1) '$PS1
+}
+
+# Terraform
+
+alias tf=terraform
+alias tfi="terraform init"
+alias tfa="terraform apply"
+alias tfd="terraform destroy"
+alias tfp="terraform plan"
+alias tfs="terraform show"
+alias tfo="terraform output"
+
+function tfaa() {
+    terraform plan
+    echo sleep for 10 seconds ...
+    sleep 10
+    terraform apply -auto-approve
+}
+
+# Terrafor autocompletition
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+# ArgoCD
+
+. <(argocd completion zsh); compdef _argocd argocd
+
+alias acd="argocd "
+
+# slu
+. <(slu completion zsh); compdef _slu slu
+
+# tergum
+. <(tergum completion zsh); compdef _tergum tergum
+
+# training-cli
+. <(training-cli completion zsh); compdef _training-cli training-cli
+
+# watch
+alias watch="watch "
+alias w="watch -n 0.3 "
+
+
+# Terraform Plugin Cache (save plugins in one dir to save space)
+export TF_PLUGIN_CACHE_DIR="$HOME/.terraform-plugin-cache"
+
+# Docker
+alias dra='docker ps -a -q | xargs -r docker rm -f'
+alias docker-compose="docker compose "
+
+# youtube-dl mp3
+alias yd='youtube-dl --extract-audio --audio-format mp3 '
+
+
+# Completion
+
+. <(minikube completion zsh)
+
+# History
+export HISTFILE=~/.zsh_history
+export HISTSIZE=999999999
+export SAVEHIST=$HISTSIZE
+
+export HISTORY_IGNORE="(MAGICSHIT|*ACCESS_KEY*|*SECRET_KEY*|*TOKEN*)"
