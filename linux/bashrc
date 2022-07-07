@@ -178,6 +178,8 @@ complete -F _complete_alias gtka
 
 alias gacp='git add . && git commit && git push'
 complete -F _complete_alias gacp
+
+
 alias ll='ls -al'
 alias la='ls -A'
 alias l='ls -CF'
