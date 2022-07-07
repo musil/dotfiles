@@ -184,6 +184,7 @@ alias ll='ls -al'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias p='ping -c 4'
 #alias createutfdb="createdb -l en_US.utf8 -E UTF8 -T template0"
 
 alias yd='youtube-dl --extract-audio --audio-format mp3 '
