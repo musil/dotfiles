@@ -147,6 +147,8 @@ alias rmlog="find . -name '*.log' -exec rm -rf {} \;"
 alias rmswp="find . -name '*.swp' -exec rm -rf {} \;"
 alias rmdsstore="find . -name '.DS_Store' -exec rm -rf {} \;"
 
+# GIT aliases
+
 alias g=git
 complete -F _complete_alias g
 alias gst='git status'
@@ -174,6 +176,8 @@ complete -F _complete_alias gfa
 alias gtka='gitk --all'
 complete -F _complete_alias gtka
 
+alias gacp='git add . && git commit && git push'
+complete -F _complete_alias gacp
 alias ll='ls -al'
 alias la='ls -A'
 alias l='ls -CF'
@@ -246,6 +250,7 @@ complete -F _complete_alias tfo
 
 alias tip='terraform init && terraform plan'
 alias tipa='terraform init && terraform plan && terraform apply'
+
 
 function commit-terraform-lock() {
   git add .terraform.lock.hcl
