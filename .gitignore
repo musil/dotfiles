@@ -1,2 +1,12 @@
+#Mac
+._.DS_Store
 .DS_Store
+
+#windows
+Thumbs.db
+
+#Visual studio code
 .vscode
+
+#HP WOLF protect software
+~BROMIUM
