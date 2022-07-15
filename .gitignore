@@ -1,12 +1,20 @@
-#Mac
+# Mac
 ._.DS_Store
 .DS_Store
 
-#windows
+# Windows
 Thumbs.db
 
-#Visual studio code
+# Visual studio code
 .vscode
 
-#HP WOLF protect software
+# HP WOLF protect software
 ~BROMIUM
+
+# Terraform
+.terraform
+*.tfstate
+*.tfvars
+!*.EXAMPLE.tfvars
+*.tfplan
+*.backup
