@@ -136,8 +136,12 @@ alias tv='terraform validate'
 #alias w="watch -n 0.3"
 #alias cc="xclip -sel clip"
 
-alias httpserve="python -m SimpleHTTPServer"
-alias phpserve="php -S localhost:$1 $2"
+# old systems with python 2.x
+#alias httpserve="python -m SimpleHTTPServer"
+
+# new systems with python 3.x
+alias httpserver="python3 -m httpserver 8888"
+alias phpserver"php -S localhost:$1 $2"
 
 #alias tl="telnet 127.0.0.1"
 
