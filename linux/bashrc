@@ -141,7 +141,7 @@ alias tv='terraform validate'
 
 # new systems with python 3.x
 alias httpserver="python3 -m httpserver 8888"
-alias phpserver"php -S localhost:$1 $2"
+alias phpserver="php -S localhost:$1 $2"
 
 #alias tl="telnet 127.0.0.1"
 
