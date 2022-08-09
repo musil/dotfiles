@@ -179,7 +179,8 @@ alias gfa='git fetch --all --prune'
 complete -F _complete_alias gfa
 alias gtka='gitk --all'
 complete -F _complete_alias gtka
-
+alias gcm='git commit -m '
+complete -F _complete_alias gcm
 alias gacp='git add . && git commit && git push'
 complete -F _complete_alias gacp
 
