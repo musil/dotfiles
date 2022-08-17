@@ -259,6 +259,7 @@ complete -F _complete_alias tfo
 alias tip='terraform init && terraform plan'
 alias tipa='terraform init && terraform plan && terraform apply'
 
+wget='wget -q --show-progress --https-only --timestamping'
 
 function commit-terraform-lock() {
   git add .terraform.lock.hcl
