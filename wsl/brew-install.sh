@@ -9,3 +9,5 @@ brew install ytt
 brew install vmware-tanzu/tanzu/tanzu-community-edition
 brew install starship
 brew install kompose
+brew install argocd
+#brew install minikube
