@@ -9,3 +9,4 @@ brew install ytt
 brew install vmware-tanzu/tanzu/tanzu-community-edition
 brew install starship
 brew install kompose
+brew isntall youtube-dl
