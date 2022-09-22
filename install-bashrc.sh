@@ -10,7 +10,7 @@ function copy(){
 cp -f ./linux/bashrc ~/.bashrc
 }
 
-move &
-copy &
+move
+copy
 
 echo "All done!"
