@@ -1,4 +1,8 @@
-# inspiration -> https://github.com/github/gitignore
+# more inspiration -> https://github.com/github/gitignore
+
+# Generic
+*.log
+*.backup
 
 # Mac
 ._.DS_Store
@@ -19,7 +23,13 @@ Thumbs.db
 *.tfvars
 !*.EXAMPLE.tfvars
 *.tfplan
-*.backup
+*.tfstate.backup
+.terraform.tfstate.lock.info
 
 #Infracost
 .infracost/
+/infracost*.out.*
+
+# Editor
+.vscode
+.idea
