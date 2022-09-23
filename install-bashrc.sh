@@ -2,25 +2,25 @@
 #rename current
 timestamp=`date +%s`;
 
-function move(){
+function backup(){
     echo "Backing up .bashrc to .bashrc.$timestamp";
     mv -f ~/.bashrc ~/.bashrc.$timestamp
 }
 
 function copy(){
     echo "Copying .bashrc to ~";
- 
-cp -f ./linux/bashrc ~/.bashrc
+    cp -f ./linux/bashrc ~/.bashrc
 }
 
-move
+backup
 copy
 
-# Bootstrap oh-my-zsh
-if [ ! -d ~/.oh-my-zsh ]; then
-  git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-  mkdir -p ~/.oh-my-zsh/custom/plugins/eddiezane
-  mkdir -p ~/.oh-my-zsh/custom/themes
-fi
+# zshrc
+if [ ! -d ~/.zsrc ]; then
+    echo "Backing up .zshrc to .zshrc.$timestamp";
+    mv -f ~/.zshrc ~/.zshrc.$timestamp
+    echo "Installing zshrc";
+    cp -f ./linux/zsrc ~/.zsrc
+  fi
 
 echo "All done!"
