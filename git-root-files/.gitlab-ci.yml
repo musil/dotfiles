@@ -1,34 +1,32 @@
-image: musil/ci
+stages:          # List of stages for jobs, and their order of execution
+  - build
+  - test
+  - deploy
 
-stages:
-  - infracost
-
-infracost:
-  stage: infracost
+build-job:       # This job runs in the build stage, which runs first.
+  stage: build
   script:
-    - make breakdown-json
-    - make breakdown-table
-    - make breakdown-html
-    - make get-master
-    - make diff-json
-    - make diff-table
-    - make gitlab-comment-commit
-  artifacts:
-    paths:
-      - "infracost*.out.*"
+    - echo "Compiling the code..."
+    - echo "Compile complete."
 
-infracost-merge-request:
-  stage: infracost
-  only:
-    - merge_requests
+unit-test-job:   # This job runs in the test stage.
+  stage: test    # It only starts when the job in the build stage completes successfully.
   script:
-    - make breakdown-json
-    - make breakdown-table
-    - make breakdown-html
-    - make get-master
-    - make diff-json
-    - make diff-table
-    - make gitlab-comment-merge-request
-  artifacts:
-    paths:
-      - "infracost*.out.*"
+    - echo "Running unit tests... This will take about 1 seconds."
+    - sleep 1
+    - echo "Code coverage is 90%"
+
+lint-test-job:   # This job also runs in the test stage.
+  stage: test    # It can run at the same time as unit-test-job (in parallel).
+  script:
+    - echo "Linting code... This will take about 1 seconds."
+    - sleep 1
+    - echo "No lint issues found."
+
+deploy-job:      # This job runs in the deploy stage.
+  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+  script:
+    - echo "Deploying application..."
+#    - ssh-add <(echo "$STAGING_PRIVATE_KEY")
+    - ssh -p22 USER@SERVER -i /home/USER/user.key "local commands"
+    - echo "Application successfully deployed."
