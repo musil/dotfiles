@@ -262,7 +262,7 @@ alias tipa='terraform init && terraform plan && terraform apply'
 wget='wget -q --show-progress --https-only --timestamping'
 
 # apt update & upgrade & autoremove
-apt-yolo ='sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y'
+apt_yolo='sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y'
 
 
 function commit-terraform-lock() {
