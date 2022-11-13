@@ -259,10 +259,10 @@ complete -F _complete_alias tfo
 alias tip='terraform init && terraform plan'
 alias tipa='terraform init && terraform plan && terraform apply'
 
-wget='wget -q --show-progress --https-only --timestamping'
+alias wget='wget -q --show-progress --https-only --timestamping'
 
 # apt update & upgrade & autoremove
-apt_yolo='sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y'
+alias apt_yolo='sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y'
 
 
 function commit-terraform-lock() {
