@@ -64,3 +64,12 @@ brew install "wireguard-tools"
 brew install "youtube-dl", link: false
 brew install "yq"
 brew install "hashicorp/tap/vault"
+
+
+brew install cask "obs"
+brew install cask "slack"
+brew install cask "signal"
+brew install cask "spotify"
+# brew install cask "vmware-fusion" # no ARM support yet
+brew install cask "zoom"
+
