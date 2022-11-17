@@ -72,4 +72,6 @@ brew install cask "signal"
 brew install cask "spotify"
 # brew install cask "vmware-fusion" # no ARM support yet
 brew install cask "zoom"
+brew install cask "pgadmin4"
+
 
