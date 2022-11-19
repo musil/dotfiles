@@ -7,3 +7,9 @@ if [ ! -d ~/.zsrc ]; then
     echo "Installing zshrc";
     cp -f ./mac/zshrc ~/.zshrc
   fi
+
+mkdir -p ~/bin
+
+# git-init script deployment
+cp -f ./mac/git-init ~/bin/git-init
+chmod +x ~/bin/git-init
