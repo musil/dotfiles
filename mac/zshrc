@@ -1,7 +1,7 @@
 # customized for: Stanislav Musil <musil@sm-net.cz>
 #####################################
 
-STANISLAV_MUSIL_DESKTOP_HOSTNAMES=" STANs-MacBook-Pro-14-M1-MAX workstation xps17 HP-Fury-G8 "
+STANISLAV_MUSIL_DESKTOP_HOSTNAMES=" STANs-MacBook-Pro-14-M1-MAX HP-Fury-G8 workstation xps17 "
 
 export EDITOR=/usr/bin/vi
 
