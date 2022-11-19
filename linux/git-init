@@ -5,7 +5,7 @@ touch README.md
 git init
 git add README.md
 git remote add origin git@gitlab.int.dc5.cz:musils/$1.git
-#git push --set-upstream origin main
+git push --set-upstream origin main
 git add .
-git commit -m "Ini  tial commit"
+git commit -m "Initial commit"
 git push -u origin master
