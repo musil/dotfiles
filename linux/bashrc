@@ -125,6 +125,10 @@ if ! shopt -oq posix; then
 fi
 
 
+# SSH with private key
+alias sshi='ssh -i ~/.ssh/SMU_ed25519-key-20200423-OpenSSH'
+
+# Terraform
 alias t='terraform'
 alias ti='terraform init'
 alias tp='terraform plan'

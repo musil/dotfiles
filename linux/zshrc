@@ -54,6 +54,9 @@ source $ZSH/oh-my-zsh.sh
 unsetopt inc_append_history
 unsetopt share_history
 
+# SSH with private key
+alias sshi='ssh -i ~/.ssh/SMU_ed25519-key-20200423-OpenSSH'
+
 # Git
 
 alias st='git status'

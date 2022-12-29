@@ -89,6 +89,9 @@ alias l='ls -CF'
 
 alias p='ping -c 4'
 
+# SSH with private key
+alias sshi='ssh -i ~/.ssh/SMU_ed25519-key-20200423-OpenSSH'
+
 # new systems with python 3.x
 alias httpserver="python3 -m httpserver 8888"
 alias phpserver="php -S localhost:$1 $2"
@@ -210,7 +213,7 @@ function commit-terraform-lock() {
 }
 
 
-# Terrafor autocompletition
+# Terraform autocompletition
 autoload -U +X bashcompinit && bashcompinit
 #complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
