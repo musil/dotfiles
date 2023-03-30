@@ -70,6 +70,9 @@ fi
 ################### OH MY ZSH -- END -- #############################
 
 
+# fix issue with signing commits
+export GPG_TTY=$(tty)
+
 # Set language for MC
 export LANG=en_US.UTF-8
 
