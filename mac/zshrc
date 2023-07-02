@@ -1,7 +1,7 @@
 # customized for: Stanislav Musil <musil@sm-net.cz>
 #####################################
 
-STANISLAV_MUSIL_DESKTOP_HOSTNAMES=" STANs-MacBook-Pro-14-M1-MAX HP-Fury-G8 workstation xps17 "
+STANISLAV_MUSIL_DESKTOP_HOSTNAMES=" STANs-MacBook-Pro-14-M1-MAX.local HP-Fury-G8 workstation win11smu "
 
 export EDITOR=/usr/bin/vi
 
@@ -105,9 +105,12 @@ alias p='ping -c 4'
 
 # SSH with private key
 alias sshi='ssh -i ~/.ssh/SMU_ed25519-key-20200423-OpenSSH'
+alias sshim='ssh -i ~/.ssh/SMU_ed25519-key-20200423-OpenSSH -l musils'
+alias sshir='ssh -i ~/.ssh/SMU_ed25519-key-20200423-OpenSSH -l root'
+alias sshia='ssh -i ~/.ssh/SMU_ed25519-key-20200423-OpenSSH -l ansible'
 
 # new systems with python 3.x
-alias httpserver="python3 -m httpserver 8888"
+alias httpserver="python3 -m http.server 8888"
 alias phpserver="php -S localhost:$1 $2"
 
 alias rmlog="find . -name '*.log' -exec rm -rf {} \;"
