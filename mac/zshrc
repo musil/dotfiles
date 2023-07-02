@@ -23,11 +23,6 @@ setopt histignorealldups sharehistory
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=999000
-SAVEHIST=999000
-HISTFILE=~/.zsh_history
-
 # Use modern completion system
 autoload -Uz compinit
 compinit
@@ -277,8 +272,8 @@ alias wget='wget -q --show-progress --https-only --timestamping'
 
 
 # History
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 export HISTFILE=~/.zsh_history
 export HISTSIZE=999999999
 export SAVEHIST=$HISTSIZE
-
 export HISTORY_IGNORE="(MAGICSHIT|*ACCESS_KEY*|*SECRET_KEY*|*TOKEN*)"
