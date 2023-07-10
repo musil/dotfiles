@@ -1,0 +1,7 @@
+# Brewfile
+Brewfile.lock.json
+
+
+# Editor
+.vscode
+.idea
