@@ -92,9 +92,10 @@ unsetopt share_history
 
 
 # General
+alias ls='ls -al'
 alias ll='ls -al'
 alias la='ls -A'
-alias l='ls -CF'
+alias lt='ls -alt'
 
 alias p='ping -c 4'
 

@@ -1,0 +1,20 @@
+brew kubectx
+brew kn
+brew kp
+brew mkcert
+brew nss
+brew ytt
+brew vmware-tanzu/tanzu/tanzu-community-edition
+brew starship
+brew kompose
+brew argocd
+# brew install minikube
+brew youtube-dl
+brew monolith
+# brew go
+# brew openssl
+# brew tree
+# brew wget
+# brew zsh
+# brew imagemagick
+brew ssh-copy-id
