@@ -156,7 +156,6 @@ alias rmswp="find . -name '*.swp' -exec rm -rf {} \;"
 alias rmdsstore="find . -name '.DS_Store' -exec rm -rf {} \;"
 
 # GIT aliases
-
 alias g=git
 complete -F _complete_alias g
 alias gst='git status'
@@ -189,9 +188,18 @@ alias gacp='git add . && git commit && git push'
 complete -F _complete_alias gacp
 
 
+# General
 alias ll='ls -al'
 alias la='ls -A'
 alias l='ls -CF'
+alias ls='ls -al'
+alias ll='ls -al'
+alias la='ls -A'
+alias lt='ls -alt'
+alias lst='ls -alt'
+alias lstr='ls -altr'
+alias lsr='ls -alr'
+
 
 alias p='ping -c 4'
 #alias createutfdb="createdb -l en_US.utf8 -E UTF8 -T template0"
