@@ -54,11 +54,21 @@ source $ZSH/oh-my-zsh.sh
 unsetopt inc_append_history
 unsetopt share_history
 
+# General
+alias ls='ls -al'
+alias ll='ls -al'
+alias la='ls -A'
+alias lt='ls -alt'
+alias lst='ls -alt'
+alias lstr='ls -altr'
+alias lsr='ls -alr'
+
+alias p='ping -c 4'
+
 # SSH with private key
 alias sshi='ssh -i ~/.ssh/SMU_ed25519-key-20200423-OpenSSH'
 
 # Git
-
 alias st='git status'
 alias sta='git status --untracked-files=all'
 alias di='git diff'
@@ -151,5 +161,4 @@ alias yd='youtube-dl --extract-audio --audio-format mp3 '
 export HISTFILE=~/.zsh_history
 export HISTSIZE=999999999
 export SAVEHIST=$HISTSIZE
-
 export HISTORY_IGNORE="(MAGICSHIT|*ACCESS_KEY*|*SECRET_KEY*|*TOKEN*)"

@@ -96,6 +96,9 @@ alias ls='ls -al'
 alias ll='ls -al'
 alias la='ls -A'
 alias lt='ls -alt'
+alias lst='ls -alt'
+alias lstr='ls -altr'
+alias lsr='ls -alr'
 
 alias p='ping -c 4'
 
