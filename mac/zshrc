@@ -101,6 +101,7 @@ alias lstr='ls -altr'
 alias lsr='ls -alr'
 
 alias p='ping -c 4'
+alias p8='ping -c 4 8.8.8.8'
 
 # SSH with private key
 alias sshi='ssh -i ~/.ssh/SMU_ed25519-key-20200423-OpenSSH'

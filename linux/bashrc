@@ -202,6 +202,8 @@ alias lsr='ls -alr'
 
 
 alias p='ping -c 4'
+alias p8='ping -c 4 8.8.8.8'
+
 #alias createutfdb="createdb -l en_US.utf8 -E UTF8 -T template0"
 
 alias yd='youtube-dl --extract-audio --audio-format mp3 '
