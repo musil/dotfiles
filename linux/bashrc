@@ -307,3 +307,6 @@ fi
 #    . /etc/bash_completion
 #  fi
 #fi
+
+# Matrix 
+alias matrix='cmatrix -b -C green -s'

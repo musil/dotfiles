@@ -282,3 +282,6 @@ export HISTFILE=~/.zsh_history
 export HISTSIZE=999999999
 export SAVEHIST=$HISTSIZE
 export HISTORY_IGNORE="(MAGICSHIT|*ACCESS_KEY*|*SECRET_KEY*|*TOKEN*)"
+
+# Matrix 
+alias matrix='cmatrix -b -C green -s'
