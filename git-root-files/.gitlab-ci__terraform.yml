@@ -1,0 +1,87 @@
+workflow:  
+    rules:
+      - if: $CI_COMMIT_BRANCH != "main" && $CI_PIPELINE_SOURCE != "merge_request_event"
+        when: never
+      - when: always
+
+# List of variables
+variables:
+  TF_DIR: ${CI_PROJECT_DIR}               # Directory in which terraform files are kept
+  STATE_NAME: "STATE_FILE_NAME"           # Name of terraform state used in "terraform init"command
+  ADDRESS: "https://gitlab.SERVER_IP_DNS/api/v4/projects/${CI_PROJECT_ID}/terraform/state/${STATE_NAME}"
+
+
+# Stages of the pipeline
+stages:
+  - validate
+  - plan
+  - deploy
+  - apply
+  - destroy
+
+# Image which will use in each stage
+image:
+  name: hashicorp/terraform:light
+  entrypoint: [""]
+
+# Script to be executed before each stage 
+before_script:
+  - terraform --version
+  - export GITLAB_ACCESS_TOKEN=$TOKEN   # TOKEN is the environment variable which is set in gitlab project settings
+  - cd ${TF_DIR}            # To get inside the working directory
+  - terraform init 
+    -backend-config="address=${ADDRESS}" 
+    -backend-config="lock_address=${ADDRESS}/lock" 
+    -backend-config="unlock_address=${ADDRESS}/lock" 
+    -backend-config="username=musils" 
+    -backend-config="password=${GITLAB_ACCESS_TOKEN}" 
+    -backend-config="lock_method=POST" 
+    -backend-config="unlock_method=DELETE" 
+    -backend-config="retry_wait_min=5"
+  # To initiate terraform backend / gitlab managed terraform state
+  
+# To validate terraform files configuration
+validate:
+  stage: validate
+  script:
+    - terraform validate
+
+# To check the plan of the infrastructure
+plan:
+  stage: plan
+  script:
+    - terraform plan 
+  dependencies:              
+    - validate
+
+# To deploy the infrastructure
+deploy-job:      # This job runs in the deploy stage.
+  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+  script:
+    - echo "Deploying application..."
+    - ssh -p22 root@SERVER_IP_DNS -i /PATH_TO_SSH_KEY.key "REMOTE_COMMAND"
+    
+    - echo "Application successfully deployed."
+    
+    - echo "Cleanup done."
+# Manual approval to deploy the basic infrastructure. Needed only for the first time
+#  when: manual
+
+# To create infrastructure on AWS
+apply:
+  stage: apply
+  script:
+    - terraform apply  -auto-approve
+  dependencies:              
+    - validate
+    - plan
+
+# To destroy infrastructure on cloud. It needs manual approval 
+destroy:
+  stage: destroy
+  script:
+    - terraform destroy  -auto-approve
+  dependencies:          
+    - plan
+    - apply
+  when: manual
