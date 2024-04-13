@@ -127,6 +127,7 @@ fi
 
 # SSH with private key
 alias sshi='ssh -i ~/.ssh/SMU_ed25519-key-20200423-OpenSSH'
+alias ssho="ssh -o PubkeyAuthentication=no"
 
 # Terraform
 alias t='terraform'

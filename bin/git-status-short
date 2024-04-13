@@ -1,0 +1,2 @@
+#!/bin/bash
+find . -type d -name '.git' | while read dir ; do sh -c "cd $dir/../ && git status -s | grep -q [azAZ09] && echo ---- ${dir//\.git/} ---- && git status -s" ; done

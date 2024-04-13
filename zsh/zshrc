@@ -110,6 +110,7 @@ alias sshi='ssh -i ~/.ssh/SMU_ed25519-key-20200423-OpenSSH'
 alias sshim='ssh -i ~/.ssh/SMU_ed25519-key-20200423-OpenSSH -l musils'
 alias sshir='ssh -i ~/.ssh/SMU_ed25519-key-20200423-OpenSSH -l root'
 alias sshia='ssh -i ~/.ssh/SMU_ed25519-key-20200423-OpenSSH -l ansible'
+alias ssho="ssh -o PubkeyAuthentication=no"
 
 # new systems with python 3.x
 alias httpserver="python3 -m http.server 8888"

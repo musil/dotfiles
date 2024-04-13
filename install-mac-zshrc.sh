@@ -10,9 +10,9 @@ if [ ! -d ~/.zsrc ]; then
 
 mkdir -p ~/bin
 
-# git-init script deployment
-echo "Installing git-init script";
-cp -f ./git/git-init ~/bin/git-init
-chmod +x ~/bin/git-init
+# scripts deployment
+echo "Installing ~/bin scripts";
+cp -f ./bin/* ~/bin/
+chmod +x ~/bin/*
 
 echo "Installation complete";
