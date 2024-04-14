@@ -37,6 +37,6 @@ SHA=$(git rev-parse $REMOTE/$BRANCH)
 
 echo "Status of last pipeline for $PROJECT on $REMOTE/$BRANCH:" >&2
 
-JSON=$(curl --header "PRIVATE-TOKEN: $GITLAB_ACCESS_TOKEN" "https://gitlab.com/api/v4/projects/$PROJECT_ENCODED/repository/commits/$SHA" 2> /dev/null)
+JSON=$(curl --header "PRIVATE-TOKEN: $GITLAB_ACCESS_TOKEN" "https://gitlab.int.dc5.cz/api/v4/projects/$PROJECT_ENCODED/repository/commits/$SHA" 2> /dev/null)
 
 echo $JSON | jq .last_pipeline.status
