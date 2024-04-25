@@ -101,6 +101,7 @@ alias lt='ls -alt'
 alias lst='ls -alt'
 alias lstr='ls -altr'
 alias lsr='ls -alr'
+alias dmesg='dmesg -T'
 
 alias p='ping -c 4'
 alias p8='ping -c 4 8.8.8.8'
