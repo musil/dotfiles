@@ -275,7 +275,10 @@ alias docker-compose="docker compose "
 
 # youtube-dl mp3
 alias yd='youtube-dl --extract-audio --audio-format mp3 '
-
+# generate thumbnail from youtube video
+thumb() {
+    yt-dlp --ignore-errors --write-thumbnail --skip-download $1 $2 $3
+}
 # wget
 alias wget='wget -q --show-progress --https-only --timestamping'
 

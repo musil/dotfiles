@@ -207,7 +207,11 @@ alias p8='ping -c 4 8.8.8.8'
 
 #alias createutfdb="createdb -l en_US.utf8 -E UTF8 -T template0"
 
-alias yd='youtube-dl --extract-audio --audio-format mp3 '
+alias yd='youtube-dl --extract-audio --audio-format mp3'
+# generate thumbnail from youtube video
+thumb() {
+    yt-dlp --ignore-errors --write-thumbnail --skip-download $1 $2 $3
+}
 
 # --- Kubernetes ---
 alias k='kubectl'
