@@ -1,6 +1,8 @@
 # Brewfile
 Brewfile.lock.json
 
+# Mac files
+.DS_Store
 
 # Editor
 .vscode
