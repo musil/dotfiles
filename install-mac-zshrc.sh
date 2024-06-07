@@ -6,6 +6,8 @@ if [ ! -d ~/.zsrc ]; then
     mv -f ~/.zshrc ~/.zshrc.$timestamp
     echo "Installing zshrc";
     cp -f ./zsh/zshrc ~/.zshrc
+    echo "backup Powershell pfrofile to .config/powershell/profile.ps1.$timestamp";
+    mv -f ~/.config/powershell/profile.ps1 ~/.config/powershell/profile.ps1.$timestamp
   fi
 
 mkdir -p ~/bin
@@ -14,5 +16,7 @@ mkdir -p ~/bin
 echo "Installing ~/bin scripts";
 cp -f ./bin/* ~/bin/
 chmod +x ~/bin/*
+echo "Installing Powershell profile";
+cp -f ./powershell/profile.ps1 ~/.config/powershell/profile.ps1
 
 echo "Installation complete";
