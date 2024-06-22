@@ -126,8 +126,13 @@ fi
 
 
 # SSH with private key
+# SSH with private key
 alias sshi='ssh -i ~/.ssh/SMU_ed25519-key-20200423-OpenSSH'
+alias sshim='ssh -i ~/.ssh/SMU_ed25519-key-20200423-OpenSSH -l musils'
+alias sshir='ssh -i ~/.ssh/SMU_ed25519-key-20200423-OpenSSH -l root'
+alias sshia='ssh -i ~/.ssh/SMU_ed25519-key-20200423-OpenSSH -l ansible'
 alias ssho="ssh -o PubkeyAuthentication=no"
+alias ssh-rm='ssh-keygen -f ~/.ssh/known_hosts -R'
 
 # Terraform
 alias t='terraform'
