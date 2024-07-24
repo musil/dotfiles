@@ -32,6 +32,7 @@ export LANG=en_US.UTF-8
 export HISTCONTROL=ignoreboth
 export HISTSIZE=1000000
 export HISTFILESIZE=2000000
+export HIST_STAMPS="yyyy-mm-dd HH:MM:SS"
 shopt -s histappend
 
 # check the window size after each command and, if necessary,
@@ -318,8 +319,16 @@ fi
 #  fi
 #fi
 
-# Matrix 
+# Matrix
 alias matrix='cmatrix -b -C green -s'
 
 # Get week number
 alias week='date +%V'
+
+# IP address
+## Get local IP address
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+## Get external IP address
+alias ipp="dig +short myip.opendns.com @resolver1.opendns.com"
+
+

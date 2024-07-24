@@ -291,13 +291,19 @@ export HISTFILE=~/.zsh_history
 export HISTSIZE=999999999
 export SAVEHIST=$HISTSIZE
 export HISTORY_IGNORE="(MAGICSHIT|*ACCESS_KEY*|*SECRET_KEY*|*TOKEN*)"
+export HIST_STAMPS="yyyy-mm-dd HH:MM:SS"
 
 # Matrix 
 alias matrix='cmatrix -b -C green -s'
 
-
-# timestamp to history
-HIST_STAMPS="yyyy-mm-dd HH:MM:SS"
-
 # Get week number
 alias week='date +%V'
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+# IP address
+## Get local IP address
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+## Get external IP address
+alias ipp="dig +short myip.opendns.com @resolver1.opendns.com"
