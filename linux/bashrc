@@ -320,3 +320,6 @@ fi
 
 # Matrix 
 alias matrix='cmatrix -b -C green -s'
+
+# Get week number
+alias week='date +%V'
