@@ -294,3 +294,7 @@ export HISTORY_IGNORE="(MAGICSHIT|*ACCESS_KEY*|*SECRET_KEY*|*TOKEN*)"
 
 # Matrix 
 alias matrix='cmatrix -b -C green -s'
+
+
+# timestamp to history
+HIST_STAMPS="yyyy-mm-dd HH:MM:SS"
