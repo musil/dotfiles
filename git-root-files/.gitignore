@@ -32,3 +32,6 @@ Thumbs.db
 
 # Editor
 .idea
+
+# Hide Example files
+*_EXAMPLE
