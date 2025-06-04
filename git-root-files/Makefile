@@ -1,3 +1,6 @@
+help: #default
+	@echo "Usage: make [help|fmt|fmt-check|infracost|infracost-czk|infracost-usd|infracost-aud|providers-lock]"
+
 fmt:
 	terraform fmt -recursive
 
