@@ -1,2 +1,2 @@
-all: #default
-	@echo "Usage: make [all|clean|install|uninstall]"
+help: #default
+	@echo "Usage: make [help|clean|install|uninstall]"
